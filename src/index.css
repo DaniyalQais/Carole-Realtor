@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-warm-white: #FAF8F5;
+  --color-soft-ivory: #F7F3EE;
+  --color-champagne: #E9DFD2;
+  --color-luxury-gold: #C7A46C;
+  --color-luxury-gold-light: #D4B88A;
+  --color-luxury-gold-dark: #A88B52;
+  --color-charcoal: #1F2937;
+  --color-charcoal-light: #374151;
+
+  --shadow-luxury: 0 4px 24px -4px rgba(31, 41, 55, 0.08), 0 12px 48px -12px rgba(199, 164, 108, 0.12);
+  --shadow-luxury-lg: 0 8px 32px -8px rgba(31, 41, 55, 0.1), 0 24px 64px -16px rgba(199, 164, 108, 0.15);
+  --shadow-luxury-xl: 0 16px 48px -12px rgba(31, 41, 55, 0.12), 0 32px 80px -24px rgba(199, 164, 108, 0.18);
+}
+
+@layer base {
+  body {
+    @apply select-none font-sans bg-warm-white text-charcoal antialiased selection:bg-champagne selection:text-charcoal;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  @media (max-width: 767px) {
+    html {
+      scroll-padding-bottom: 5.5rem;
+    }
+  }
+
+  #consultation-form-card {
+    scroll-margin-top: 5.5rem;
+    scroll-margin-bottom: 6rem;
+  }
+}
+
+@layer utilities {
+  .shadow-luxury {
+    box-shadow: var(--shadow-luxury);
+  }
+
+  .shadow-luxury-lg {
+    box-shadow: var(--shadow-luxury-lg);
+  }
+
+  .shadow-luxury-xl {
+    box-shadow: var(--shadow-luxury-xl);
+  }
+
+  .glass-card {
+    @apply bg-white/75 backdrop-blur-xl border border-champagne/60;
+  }
+
+  .glass-card-warm {
+    @apply bg-warm-white/80 backdrop-blur-xl border border-champagne/50;
+  }
+
+  .card-luxury {
+    @apply bg-white border border-champagne/40 rounded-2xl shadow-luxury transition-all duration-500;
+  }
+
+  .card-luxury:hover {
+    @apply shadow-luxury-lg border-luxury-gold/30 -translate-y-1;
+  }
+
+  .btn-luxury {
+    @apply bg-charcoal hover:bg-luxury-gold text-warm-white hover:text-charcoal px-8 py-4 rounded-full text-sm font-semibold tracking-widest uppercase transition-all duration-300 shadow-luxury hover:shadow-luxury-lg cursor-pointer;
+  }
+
+  .btn-luxury-outline {
+    @apply bg-white/80 hover:bg-white border border-champagne hover:border-luxury-gold text-charcoal px-8 py-4 rounded-full text-sm font-semibold tracking-widest uppercase transition-all duration-300 backdrop-blur-md cursor-pointer;
+  }
+
+  .input-luxury {
+    @apply w-full bg-soft-ivory border border-champagne rounded-xl py-3.5 px-4 text-sm font-sans text-charcoal placeholder-stone-400 focus:outline-none focus:border-luxury-gold focus:bg-white focus:ring-2 focus:ring-luxury-gold/20 transition-all duration-300;
+  }
+
+  .input-field-wrap {
+    @apply flex items-center gap-3 w-full bg-soft-ivory border border-champagne rounded-xl py-3.5 px-4 transition-all duration-300;
+  }
+
+  .input-field-wrap:focus-within {
+    @apply border-luxury-gold bg-white ring-2 ring-luxury-gold/20;
+  }
+
+  .input-field-wrap--textarea {
+    @apply items-start pt-3.5;
+  }
+
+  .input-field-wrap input,
+  .input-field-wrap textarea {
+    @apply flex-1 min-w-0 w-0 bg-transparent border-0 p-0 text-sm font-sans text-charcoal placeholder-stone-400 focus:outline-none focus:ring-0 shadow-none;
+  }
+
+  .input-field-wrap textarea {
+    @apply resize-none leading-relaxed;
+  }
+
+  .input-field-icon {
+    @apply w-4 h-4 shrink-0 text-luxury-gold-dark pointer-events-none;
+  }
+
+  .input-field-wrap--textarea .input-field-icon {
+    @apply mt-0.5;
+  }
+
+  .section-eyebrow {
+    @apply text-[11px] uppercase tracking-[0.4em] font-mono text-luxury-gold-dark font-bold block;
+  }
+
+  .section-title {
+    @apply font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-charcoal tracking-tight leading-[1.1];
+  }
+
+  .section-subtitle {
+    @apply text-sm sm:text-base font-sans font-light text-stone-500 leading-relaxed;
+  }
+
+  .display-quote {
+    @apply font-serif text-xl sm:text-2xl lg:text-[1.65rem] font-light text-charcoal leading-relaxed italic;
+  }
+
+  .section-padding {
+    @apply py-20 sm:py-24 lg:py-28;
+  }
+
+  .tap-target {
+    @apply min-h-[48px] min-w-[48px];
+  }
+
+  .btn-press {
+    @apply transition-all duration-200 active:scale-[0.97] hover:-translate-y-0.5;
+  }
+
+  .warm-image {
+    @apply brightness-105 saturate-110;
+  }
+
+  .shimmer-gold {
+    background: linear-gradient(
+      90deg,
+      var(--color-luxury-gold) 0%,
+      var(--color-luxury-gold-light) 50%,
+      var(--color-luxury-gold) 100%
+    );
+    background-size: 200% auto;
+  }
+
+  .shimmer-gold:hover {
+    animation: shimmer 2s linear infinite;
+  }
+}
+
+@keyframes subtle-zoom {
+  from { transform: scale(1.02); }
+  to { transform: scale(1.08); }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.92; transform: scale(0.99); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-subtle-zoom {
+  animation: subtle-zoom 25s ease-in-out infinite alternate;
+}
+
+.animate-fade-in {
+  animation: fade-in-up 0.7s ease-out forwards;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

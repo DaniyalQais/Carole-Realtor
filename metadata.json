@@ -1,0 +1,6 @@
+{
+  "name": "Carole Staats Realtor Website",
+  "description": "Premium personal-brand real estate website and lead-generation platform for Carole Staats, REALTOR®.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
