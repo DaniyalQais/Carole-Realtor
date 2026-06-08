@@ -9,10 +9,10 @@ import Reveal from './Reveal';
 
 interface HeroProps {
   onOpenConsultation: (type?: string) => void;
-  heroImageName: string;
+  heroImage: string;
 }
 
-export default function Hero({ onOpenConsultation, heroImageName }: HeroProps) {
+export default function Hero({ onOpenConsultation, heroImage }: HeroProps) {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -39,7 +39,7 @@ export default function Hero({ onOpenConsultation, heroImageName }: HeroProps) {
     <section id="hero" className="relative min-h-[92vh] md:min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden bg-warm-white">
       <div className="absolute inset-0 z-0">
         <img
-          src={`/src/assets/images/${heroImageName}.png`}
+          src={heroImage}
           alt="Luxury Architectural Residence"
           className="w-full h-full object-cover warm-image animate-subtle-zoom"
           referrerPolicy="no-referrer"

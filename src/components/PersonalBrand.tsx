@@ -8,11 +8,11 @@ import { Award, Shield, Compass, MessageCircle, Phone, Star, BadgeCheck } from '
 import Reveal from './Reveal';
 
 interface PersonalBrandProps {
-  portraitImageName: string;
+  portraitImage: string;
   onOpenConsultation: (type?: string) => void;
 }
 
-export default function PersonalBrand({ portraitImageName, onOpenConsultation }: PersonalBrandProps) {
+export default function PersonalBrand({ portraitImage, onOpenConsultation }: PersonalBrandProps) {
 
   const pillars = [
     {
@@ -57,7 +57,7 @@ export default function PersonalBrand({ portraitImageName, onOpenConsultation }:
 
               <div className="relative rounded-3xl overflow-hidden shadow-luxury-xl aspect-[3/4] bg-champagne group">
                 <img
-                  src={`/src/assets/images/${portraitImageName}.png`}
+                  src={portraitImage}
                   alt="Carole Staats, REALTOR®"
                   className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700"
                   referrerPolicy="no-referrer"

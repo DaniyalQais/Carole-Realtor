@@ -10,7 +10,7 @@ import Reveal from './Reveal';
 
 interface HomeValueEstimatorProps {
   onScheduleValuation: (address: string) => void;
-  portraitImageName: string;
+  portraitImage: string;
 }
 
 const propertyTypes = [
@@ -20,7 +20,7 @@ const propertyTypes = [
   { id: 'Townhouse', label: 'Townhouse', icon: '🏘️' },
 ];
 
-export default function HomeValueEstimator({ onScheduleValuation, portraitImageName }: HomeValueEstimatorProps) {
+export default function HomeValueEstimator({ onScheduleValuation, portraitImage }: HomeValueEstimatorProps) {
   const [address, setAddress] = useState("");
   const [propertyType, setPropertyType] = useState("Single Family Residence");
   const [bedrooms, setBedrooms] = useState(3);
@@ -144,7 +144,7 @@ export default function HomeValueEstimator({ onScheduleValuation, portraitImageN
                     <div className="flex items-center justify-between gap-4 pb-2 border-b border-champagne/40">
                       <div className="flex items-center gap-3">
                         <img
-                          src={`/src/assets/images/${portraitImageName}.png`}
+                          src={portraitImage}
                           alt="Carole Staats"
                           className="w-10 h-10 rounded-full object-cover border-2 border-luxury-gold/40"
                           referrerPolicy="no-referrer"
@@ -321,7 +321,7 @@ export default function HomeValueEstimator({ onScheduleValuation, portraitImageN
 
                     <div className="flex gap-4 items-start bg-white border border-champagne/50 rounded-2xl p-5 sm:p-6 shadow-luxury">
                       <img
-                        src={`/src/assets/images/${portraitImageName}.png`}
+                        src={portraitImage}
                         alt="Carole Staats"
                         className="w-14 h-14 rounded-full object-cover border-2 border-luxury-gold/40 shrink-0"
                         referrerPolicy="no-referrer"

@@ -19,6 +19,7 @@ import FooterLocation from './components/FooterLocation';
 import Footer from './components/Footer';
 import MobileStickyCTA from './components/MobileStickyCTA';
 import { scrollToConsultationFormAfterRender } from './utils/scrollToElement';
+import { siteImages } from './assets/siteImages';
 
 export default function App() {
   const [selectedConsultationType, setSelectedConsultationType] = useState("consultation");
@@ -58,10 +59,6 @@ export default function App() {
     setSelectedConsultationType("consultation");
   };
 
-  const HERO_IMAGE_REF = "hero_luxury_home_1780911684969";
-  const PORTRAIT_IMAGE_REF = "carole_staats_portrait_1780911705876";
-  const INTERIOR_IMAGE_REF = "luxury_interior_1780911728480";
-
   return (
     <div className={`min-h-screen bg-warm-white overflow-x-hidden flex flex-col justify-between font-sans md:pb-0 transition-[padding] duration-300 ${showMobileCTA ? 'pb-20' : 'pb-0'}`}>
 
@@ -69,13 +66,13 @@ export default function App() {
 
       <Hero
         onOpenConsultation={handleOpenConsultation}
-        heroImageName={HERO_IMAGE_REF}
+        heroImage={siteImages.hero}
       />
 
       <LocalMarketSnapshot />
 
       <PersonalBrand
-        portraitImageName={PORTRAIT_IMAGE_REF}
+        portraitImage={siteImages.portrait}
         onOpenConsultation={handleOpenConsultation}
       />
 
@@ -83,13 +80,13 @@ export default function App() {
 
       <FeaturedShowcase
         onScheduleShowing={handleScheduledShowing}
-        heroImageName={HERO_IMAGE_REF}
-        interiorImageName={INTERIOR_IMAGE_REF}
+        heroImage={siteImages.hero}
+        interiorImage={siteImages.interior}
       />
 
       <HomeValueEstimator
         onScheduleValuation={handleScheduledValuation}
-        portraitImageName={PORTRAIT_IMAGE_REF}
+        portraitImage={siteImages.portrait}
       />
 
       <WhyChooseCarole />

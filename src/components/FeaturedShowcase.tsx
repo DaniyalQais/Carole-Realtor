@@ -10,8 +10,8 @@ import Reveal from './Reveal';
 
 interface FeaturedShowcaseProps {
   onScheduleShowing: (propertyAddress: string) => void;
-  heroImageName: string;
-  interiorImageName: string;
+  heroImage: string;
+  interiorImage: string;
 }
 
 function getStatusStyle(status: string) {
@@ -22,7 +22,7 @@ function getStatusStyle(status: string) {
   return 'bg-charcoal/85 text-luxury-gold border-luxury-gold/30';
 }
 
-export default function FeaturedShowcase({ onScheduleShowing, heroImageName, interiorImageName }: FeaturedShowcaseProps) {
+export default function FeaturedShowcase({ onScheduleShowing, heroImage, interiorImage }: FeaturedShowcaseProps) {
   const [properties, setProperties] = useState<Property[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
@@ -42,8 +42,8 @@ export default function FeaturedShowcase({ onScheduleShowing, heroImageName, int
   }, []);
 
   const resolvePropertyImage = (imgRef: string) => {
-    if (imgRef === "hero_luxury_home") return `/src/assets/images/${heroImageName}.png`;
-    if (imgRef === "luxury_interior") return `/src/assets/images/${interiorImageName}.png`;
+    if (imgRef === "hero_luxury_home") return heroImage;
+    if (imgRef === "luxury_interior") return interiorImage;
     return imgRef;
   };
 
